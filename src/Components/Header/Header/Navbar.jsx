@@ -11,7 +11,7 @@ const NavBar = () => {
     >
       <Container>
         <Navbar.Brand href="#home">
-          <img src="../src/assets/bg.png" style={{ width: "3rem" }} alt="" />
+          <img src="/bg.png" style={{ width: "3rem" }} alt="" />
           <b> Job Hunter</b>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

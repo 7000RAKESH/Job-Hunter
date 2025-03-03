@@ -53,7 +53,7 @@ const HeroSection = () => {
           </Col>
           <Col lg={6} className="text-center">
             <img
-              src="../src/assets/main.png"
+              src="/main.png"
               alt="Job Search"
               className="img-fluid rounded shadow"
             />

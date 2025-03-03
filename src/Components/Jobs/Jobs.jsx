@@ -27,7 +27,7 @@ const Jobs = () => {
       className="py-5 bg-light"
       id="jobs"
       style={{
-        backgroundImage: "url( ../src/assets/bg2.jpg)",
+        backgroundImage: "url( /bg2.jpg)",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
