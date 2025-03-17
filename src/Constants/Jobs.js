@@ -3,6 +3,7 @@ import {
   faBriefcase,
   faChartLine,
   faShieldAlt,
+  faUserTie,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const jobs = [
@@ -22,8 +23,8 @@ export const jobs = [
     text: "Monitor your application status in real-time",
   },
   {
-    icon: faShieldAlt,
-    title: "Secure Platform",
-    text: "Your data is protected with advanced security measures",
+    icon: faUserTie,
+    title: "Are you a Recruiter ?",
+    text: "Then find talented candidates in Job-Hunter",
   },
 ];

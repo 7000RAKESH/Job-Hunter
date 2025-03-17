@@ -1,5 +1,15 @@
 import React from "react";
-import { Container, Button, Row, Col, Card, Form } from "react-bootstrap";
+import { Container, Button, Row, Card, Col, Form } from "react-bootstrap";
+
+// import {
+//   Card,
+//   CardHeader,
+//   CardFooter,
+//   CardTitle,
+//   CardDescription,
+//   CardContent,
+// } from "../ui/card";
+// import { Button } from "../ui/button";
 const styles = {
   heroSection: {
     background: "#3674B5",
@@ -32,20 +42,16 @@ const HeroSection = () => {
               Your trusted platform for discovering opportunities and building
               your career path
             </p>
-            <Card className="p-4">
-              <Row className="g-3">
+            <Card className="p-3 w-lg">
+              <Row className="g-4  justify-center">
                 <Col md={5}>
-                  <Form.Control
-                    type="text"
-                    placeholder="Job title or keyword"
-                  />
-                </Col>
-                <Col md={4}>
-                  <Form.Control type="text" placeholder="Location" />
-                </Col>
-                <Col md={3}>
                   <Button variant="primary" className="w-100">
-                    Search Jobs
+                    Find Job
+                  </Button>
+                </Col>
+                <Col md={5}>
+                  <Button variant="dark" className="w-100">
+                    Post a Job
                   </Button>
                 </Col>
               </Row>
@@ -57,11 +63,6 @@ const HeroSection = () => {
               alt="Job Search"
               className="img-fluid rounded shadow"
             />
-            {/* <img
-              src="../src/assets/bg2.jpg"
-              alt="Job Search"
-              className="img-fluid rounded shadow"
-            /> */}
           </Col>
         </Row>
       </Container>

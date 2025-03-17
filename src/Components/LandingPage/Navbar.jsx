@@ -1,5 +1,13 @@
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 import React from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Toggletheme } from "../ui/Toggletheme";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -11,8 +19,11 @@ const NavBar = () => {
     >
       <Container>
         <Navbar.Brand href="#home">
-          <img src="/bg.png" style={{ width: "3rem" }} alt="" />
-          <b> Job Hunter</b>
+          <Link to={"/"}>
+            <img src="/bg.png" style={{ width: "3rem" }} alt="" />
+          </Link>
+
+          {/* <b> Job Hunter</b> */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -22,8 +33,14 @@ const NavBar = () => {
             <Nav.Link href="#companies">Companies</Nav.Link>
             <Nav.Link href="#about">About</Nav.Link>
             <Button variant="light" className="ms-2">
-              Sign In
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
             </Button>
+            {/* <Toggletheme /> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
