@@ -5,9 +5,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../ui/accordion";
+} from "@/components/ui/accordion";
 
-console.log(faqs);
 const Footer = () => {
   return (
     <footer className="bg-dark text-white p-4  h-auto">
