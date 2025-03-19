@@ -1,15 +1,7 @@
 import React from "react";
 import { Container, Button, Row, Card, Col, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-// import {
-//   Card,
-//   CardHeader,
-//   CardFooter,
-//   CardTitle,
-//   CardDescription,
-//   CardContent,
-// } from "../ui/card";
-// import { Button } from "../ui/button";
 const styles = {
   heroSection: {
     background: "#3674B5",
@@ -42,17 +34,21 @@ const HeroSection = () => {
               Your trusted platform for discovering opportunities and building
               your career path
             </p>
-            <Card className="p-3 w-lg">
-              <Row className="g-4  justify-center">
-                <Col md={5}>
-                  <Button variant="primary" className="w-100">
-                    Find Job
-                  </Button>
+            <Card className="p-3 w-100">
+              <Row className="g-4 justify-content-center">
+                <Col xs={12} sm={6} md={5} lg={5}>
+                  <Link to="/joblist">
+                    <Button variant="primary" className="w-100">
+                      Find Job
+                    </Button>
+                  </Link>
                 </Col>
-                <Col md={5}>
-                  <Button variant="dark" className="w-100">
-                    Post a Job
-                  </Button>
+                <Col xs={12} sm={6} md={5} lg={5}>
+                  <Link to="/post-job">
+                    <Button variant="dark" className="w-100">
+                      Post a Job
+                    </Button>
+                  </Link>
                 </Col>
               </Row>
             </Card>

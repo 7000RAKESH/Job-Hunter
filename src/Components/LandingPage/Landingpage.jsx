@@ -9,9 +9,6 @@ import Footer from "./Footer";
 const JobHunterLanding = () => {
   return (
     <>
-      <NavBar />
-      <br />
-
       <HeroSection />
 
       <Jobs />
