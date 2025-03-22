@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useUser } from "@clerk/clerk-react";
-
 import { Button, Card, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -10,12 +9,9 @@ import {
   CircleLoader,
   RingLoader,
 } from "react-spinners";
-
 const Onboarding = () => {
   const { user, isLoaded } = useUser();
-
   const navigate = useNavigate();
-
   const handelRole = async (role) => {
     await user
       .update({ unsafeMetadata: { role } })
@@ -33,7 +29,6 @@ const Onboarding = () => {
       );
     }
   }, [user]);
-
   if (!isLoaded) {
     return (
       <BarLoader
@@ -62,12 +57,11 @@ const Onboarding = () => {
       }}
     >
       <div>
-        <b className="text-8xl">i am a.....</b>
-        <br />
-        <br />
+        <b className="text-8xl">i am a.....</b> <br /> <br />{" "}
         <Card className="p-3  justify-between w-auto">
           <Row className="g-4 justify-content-center">
             <Col xs={12} sm={6} md={5} lg={5}>
+              {" "}
               <Button
                 onClick={() => {
                   handelRole("candidate");
@@ -75,10 +69,12 @@ const Onboarding = () => {
                 variant="primary"
                 className="w-100 fs-5"
               >
-                <b> Candidate</b>
-              </Button>
-            </Col>
+                {" "}
+                <b> Candidate</b>{" "}
+              </Button>{" "}
+            </Col>{" "}
             <Col xs={12} sm={6} md={5} lg={5}>
+              {" "}
               <Button
                 onClick={() => {
                   handelRole("recruiter");
@@ -86,11 +82,12 @@ const Onboarding = () => {
                 variant="dark"
                 className="w-100  fs-5"
               >
-                <b> Recruiter</b>
-              </Button>
-            </Col>
-          </Row>
-        </Card>
+                {" "}
+                <b> Recruiter</b>{" "}
+              </Button>{" "}
+            </Col>{" "}
+          </Row>{" "}
+        </Card>{" "}
       </div>
     </div>
   );
