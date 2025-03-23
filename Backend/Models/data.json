@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "role": "Software Engineer",
+    "image": "../Backend/images/Amazon.webp",
+    "description": "As a Software Engineer, you will design, develop, and maintain software applications.",
+    "name": "Amazon",
+    "requirements": "Experience with JavaScript, React, and Node.js.",
+    "isOpen": true,
+    "location": "San Francisco, CA"
+  },
+  {
+    "id": 2,
+    "role": "Product Manager",
+    "image": "../Backend/images/atlassian.svg",
+    "description": "As a Product Manager, you will lead product development teams to deliver innovative solutions.",
+    "name": "Atlassian",
+    "requirements": "Experience with agile methodologies and product lifecycle management.",
+    "isOpen": true,
+    "location": "New York, NY"
+  },
+  {
+    "id": 3,
+    "role": "UI/UX Designer",
+    "image": "../Backend/images/IBM.jpg",
+    "description": "The UI/UX Designer will create visually appealing and user-friendly interfaces for web applications.",
+    "name": "IBM",
+    "requirements": "Experience in UI design, wireframing, and proficiency in design tools like Figma or Sketch.",
+    "isOpen": true,
+    "location": "Remote"
+  },
+  {
+    "id": 4,
+    "role": "Data Scientist",
+    "image": "../Backend/images/Amazon.webp",
+    "description": "As a Data Scientist, you will analyze large datasets to derive actionable insights and support decision-making.",
+    "name": "Amazon",
+    "requirements": "Experience with Python, R, and machine learning frameworks.",
+    "isOpen": true,
+    "location": "Austin, TX"
+  },
+  {
+    "id": 5,
+    "role": "DevOps Engineer",
+    "image": "../Backend/images/meta.svg",
+    "description": "DevOps Engineers are responsible for automating and streamlining the development and deployment pipeline.",
+    "name": "Meta",
+    "requirements": "Experience with Docker, Kubernetes, and CI/CD tools.",
+    "isOpen": true,
+    "location": "Chicago, IL"
+  },
+  {
+    "id": 6,
+    "role": "Software Engineer",
+    "image": "../Backend/images/netflix.png",
+    "description": "As a Software Engineer, you will design, develop, and maintain software applications.",
+    "name": "Netflix",
+    "requirements": "Experience with JavaScript, React, and Node.js.",
+    "isOpen": true,
+    "location": "San Francisco, CA"
+  },
+  {
+    "id": 7,
+    "role": "Product Manager",
+    "image": "../Backend/images/microsoft.webp",
+    "description": "As a Product Manager, you will lead product development teams to deliver innovative solutions.",
+    "name": "Microsoft",
+    "requirements": "Experience with agile methodologies and product lifecycle management.",
+    "isOpen": true,
+    "location": "New York, NY"
+  },
+  {
+    "id": 8,
+    "role": "UI/UX Designer",
+    "image": "../Backend/images/uber.svg",
+    "description": "The UI/UX Designer will create visually appealing and user-friendly interfaces for web applications.",
+    "name": "Uber",
+    "requirements": "Experience in UI design, wireframing, and proficiency in design tools like Figma or Sketch.",
+    "isOpen": true,
+    "location": "Remote"
+  },
+  {
+    "id": 9,
+    "role": "Data Scientist",
+    "image": "../Backend/images/Amazon.webp",
+    "description": "As a Data Scientist, you will analyze large datasets to derive actionable insights and support decision-making.",
+    "name": "Amazon",
+    "requirements": "Experience with Python, R, and machine learning frameworks.",
+    "isOpen": true,
+    "location": "Austin, TX"
+  },
+  {
+    "id": 10,
+    "role": "DevOps Engineer",
+    "image": "../Backend/images/google.webp",
+    "description": "DevOps Engineers are responsible for automating and streamlining the development and deployment pipeline.",
+    "name": "Google",
+    "requirements": "Experience with Docker, Kubernetes, and CI/CD tools.",
+    "isOpen": true,
+    "location": "Chicago, IL"
+  }
+]

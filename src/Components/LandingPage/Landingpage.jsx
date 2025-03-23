@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "./Navbar";
 import HeroSection from "./HeroSection";
 import Jobs from "./Jobs";
 import Companies from "./Companies";

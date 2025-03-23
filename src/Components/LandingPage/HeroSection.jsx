@@ -44,7 +44,7 @@ const HeroSection = () => {
                   </Link>
                 </Col>
                 <Col xs={12} sm={6} md={5} lg={5}>
-                  <Link to="/post-job">
+                  <Link to="/postjob">
                     <Button variant="dark" className="w-100">
                       Post a Job
                     </Button>

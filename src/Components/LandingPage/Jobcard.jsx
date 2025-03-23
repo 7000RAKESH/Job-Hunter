@@ -19,6 +19,8 @@ const Jobcard = ({
   onJobSaved = () => {},
 }) => {
   const [saved, setSaved] = useState(savedInit);
+
+  // console.log("job", job);
   const {
     fn: fnSavedJob,
     data: savedJob,
@@ -43,8 +45,8 @@ const Jobcard = ({
     <Card className={"w-auto m-3  "}>
       <CardHeader>
         <CardTitle className={"flex justify-between font-bold"}>
-          {job.title}
-          {isMyJob && (
+          {job.role}
+          {job && (
             <Trash2Icon
               fill="red"
               size={20}
@@ -56,9 +58,7 @@ const Jobcard = ({
       <CardContent className={"flex flex-col gap-4 flex-1"}>
         <div className="flex justify-between">
           {/* {job.companies && <p>{job.companies.name}</p>} */}
-          {job.companies && (
-            <img src={job.companies.logo_url} className="h-6" />
-          )}
+          {job && <img src={job.image} alt={job.role} className="h-6" />}
           <div className="flex  gap-2 items-center">
             <MapPinIcon size={15} /> {job.location}
           </div>
@@ -73,7 +73,7 @@ const Jobcard = ({
           </Button>
         </Link>
 
-        {!isMyJob && (
+        {job && (
           <Button
             onClick={handleSavedJob}
             disabled={loadingSavedJob}

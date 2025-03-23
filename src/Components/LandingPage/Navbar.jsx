@@ -60,7 +60,7 @@ const NavBar = () => {
           <SignedIn>
             <div className="flex justify-center  gap-8">
               {user?.unsafeMetadata?.role == "recruiter" ? (
-                <Link to="/post-job">
+                <Link to="/postjob">
                   <Button variant="destructive" className={"rounded-full"}>
                     <PenBox className="mr-2" size={20} />
                     post Job
@@ -85,7 +85,7 @@ const NavBar = () => {
                   <UserButton.Link
                     label="savd-jobs"
                     labelIcon={<Heart size={15} />}
-                    href="/saved-jobs"
+                    href="/savedjobs"
                   />
                 </UserButton.MenuItems>
               </UserButton>
