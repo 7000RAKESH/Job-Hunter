@@ -22,23 +22,23 @@ const JobListing = () => {
   const { isLoaded } = useUser();
   const [jobsData, setJobsData] = useState([]);
 
-  // const fetchJobs = async () => {
-  //   const { data, error } = await supabase
-  //     .from("jobs")
-  //     .select("* ,companies(name,logo_url)");
-  //   if (error) {
-  //     console.log(error);
-  //   }
-  //   if (data) {
-  //     setJobsData(data);
-  //   }
-  // };
+  const fetchJobs = async () => {
+    const { data, error } = await supabase
+      .from("jobs")
+      .select("* ,companies(name,logo_url)");
+    if (error) {
+      console.log(error);
+    }
+    if (data) {
+      setJobsData(data);
+    }
+  };
 
-  // useEffect(() => {
-  //   fetchJobs();
-  // }, []);
+  useEffect(() => {
+    fetchJobs();
+  }, []);
 
-  // console.log(jobsData);
+  console.log(jobsData);
   const {
     fn: fnJobs,
     data: datajobs,
@@ -110,7 +110,6 @@ const JobListing = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                // background: "transparent",
               }}
             />
           )}
