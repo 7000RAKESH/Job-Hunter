@@ -72,9 +72,8 @@ const Onboarding = () => {
                 {" "}
                 <b> Candidate</b>{" "}
               </Button>{" "}
-            </Col>{" "}
+            </Col>
             <Col xs={12} sm={6} md={5} lg={5}>
-              {" "}
               <Button
                 onClick={() => {
                   handelRole("recruiter");
@@ -82,12 +81,11 @@ const Onboarding = () => {
                 variant="dark"
                 className="w-100  fs-5"
               >
-                {" "}
-                <b> Recruiter</b>{" "}
-              </Button>{" "}
-            </Col>{" "}
-          </Row>{" "}
-        </Card>{" "}
+                <b> Recruiter</b>
+              </Button>
+            </Col>
+          </Row>
+        </Card>
       </div>
     </div>
   );

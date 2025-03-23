@@ -6,14 +6,14 @@ import { Button, Card, Row, Col } from "react-bootstrap";
 import { BarLoader } from "react-spinners";
 import supabase from "@/utils/supabase2";
 import { Input } from "@/Components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+// import {
+//   Select,
+//   SelectContent,
+//   SelectGroup,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select";
 import Jobcard from "@/Components/LandingPage/Jobcard";
 const JobListing = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -22,23 +22,23 @@ const JobListing = () => {
   const { isLoaded } = useUser();
   const [jobsData, setJobsData] = useState([]);
 
-  const fetchJobs = async () => {
-    const { data, error } = await supabase
-      .from("jobs")
-      .select("* ,companies(name,logo_url)");
-    if (error) {
-      console.log(error);
-    }
-    if (data) {
-      setJobsData(data);
-    }
-  };
+  // const fetchJobs = async () => {
+  //   const { data, error } = await supabase
+  //     .from("jobs")
+  //     .select("* ,companies(name,logo_url)");
+  //   if (error) {
+  //     console.log(error);
+  //   }
+  //   if (data) {
+  //     setJobsData(data);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchJobs();
-  }, []);
+  // useEffect(() => {
+  //   fetchJobs();
+  // }, []);
 
-  console.log(jobsData);
+  // console.log(jobsData);
   const {
     fn: fnJobs,
     data: datajobs,
