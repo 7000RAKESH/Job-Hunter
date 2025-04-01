@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Row, Col } from "react-bootstrap";
 import { BarLoader } from "react-spinners";
-import Jobcard from "@/Components/LandingPage/Jobcard"; // Assuming you have a Jobcard component
-import { Input } from "@/Components/ui/input"; // Assuming you have an Input component
+import Jobcard from "@/Components/LandingPage/Jobcard";
+import { Input } from "@/Components/ui/input";
 import { fetchData } from "@/apis/apijobs";
 const JobListing = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -10,16 +10,15 @@ const JobListing = () => {
   const [jobsData, setJobsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Simulate loading job data from a local JSON file
   useEffect(() => {
     const res = fetchData().then((data) => {
       setJobsData(data);
+      // console.log(data);
       setLoading(false);
     });
   }, []);
 
   const filteredJobs = jobsData.filter((job) => {
-    // Filter based on search query, location, and open status
     const isJobOpen = job.isOpen;
     const matchesQuery =
       job.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -28,12 +27,13 @@ const JobListing = () => {
       .toLowerCase()
       .includes(location.toLowerCase());
 
-    return isJobOpen && matchesQuery && matchesLocation;
+    return matchesQuery && matchesLocation;
   });
 
-  const handleSearch = (event) => {
-    event.preventDefault();
-    // Trigger the filter action by setting search query
+  const handleClearFilter = (e) => {
+    e.preventDefault();
+    setSearchQuery("");
+    setLocation("");
   };
 
   if (loading) {
@@ -67,10 +67,8 @@ const JobListing = () => {
       }}
     >
       <b className="text-6xl font-extrabold">Latest Jobs</b>
-
-      {/* Search Form */}
       <form
-        onSubmit={handleSearch}
+        onSubmit={handleClearFilter}
         className="h-14 flex m-4 flex-row w-auto gap-2  justify-between mb-3 text-dark "
       >
         <Input
@@ -82,11 +80,9 @@ const JobListing = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         <Button type="submit" className="h-full sm:w-28" variant="danger">
-          Search
+          Clear Filter
         </Button>
       </form>
-
-      {/* Filter by Location */}
       <div className="mb-4  w-auto m-6 bg-white text-dark">
         <Input
           type="text"
@@ -96,8 +92,6 @@ const JobListing = () => {
           onChange={(e) => setLocation(e.target.value)}
         />
       </div>
-
-      {/* Job Listings */}
       <div className="pt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredJobs.length > 0 ? (
           filteredJobs.map((job) => <Jobcard key={job.id} job={job} />)

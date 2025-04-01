@@ -1,6 +1,23 @@
 [
   {
-    "candidate_id": 1,
-    "saved_jobs": [1, 2]
+    "candidateId": "1",
+    "savedJobs": [
+      "10",
+      "1"
+    ]
+  },
+  {
+    "candidateId": 5,
+    "savedJobs": [
+      15,
+      6,
+      5
+    ]
+  },
+  {
+    "candidateId": 13,
+    "savedJobs": [
+      1
+    ]
   }
 ]

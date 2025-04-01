@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Button, Row, Card, Col, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const styles = {
   heroSection: {
@@ -21,7 +21,28 @@ const styles = {
     },
   },
 };
+
 const HeroSection = () => {
+  const [user, setUser] = useState(false);
+  const navigate = useNavigate();
+  const data = JSON.parse(localStorage.getItem("user"));
+  useEffect(() => {
+    // console.log(data);
+    if (data) setUser(true);
+    else setUser(false);
+  }, []);
+
+  const handleClick = () => {
+    if (!user) {
+      navigate("/login");
+    } else if (user) {
+      if (data.role == "candidate") {
+        navigate("/joblist");
+      } else {
+        navigate("/postjob");
+      }
+    }
+  };
   return (
     <section style={styles.heroSection} id="home">
       <Container>
@@ -37,15 +58,23 @@ const HeroSection = () => {
             <Card className="p-3 w-100">
               <Row className="g-4 justify-content-center">
                 <Col xs={12} sm={6} md={5} lg={5}>
-                  <Link to="/joblist">
-                    <Button variant="primary" className="w-100">
+                  <Link>
+                    <Button
+                      onClick={handleClick}
+                      variant="primary"
+                      className="w-100"
+                    >
                       Find Job
                     </Button>
                   </Link>
                 </Col>
                 <Col xs={12} sm={6} md={5} lg={5}>
-                  <Link to="/postjob">
-                    <Button variant="dark" className="w-100">
+                  <Link>
+                    <Button
+                      variant="dark"
+                      onClick={handleClick}
+                      className="w-100"
+                    >
                       Post a Job
                     </Button>
                   </Link>

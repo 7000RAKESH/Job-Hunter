@@ -3,19 +3,97 @@
     "id": 1,
     "email": "john.doe@gmail.com",
     "role": "candidate",
-    "savedJobs": [1],
-    "appliedJobs": [2]
+    "savedJobs": [
+      1
+    ],
+    "appliedJobs": [
+      2
+    ]
   },
   {
     "id": 2,
     "email": "jane.recruiter@techcorp.com",
     "role": "recruiter",
-    "postedJobs": [1]
+    "postedJobs": [
+      1
+    ]
   },
   {
     "id": 3,
     "email": "bob.recruiter@designco.com",
     "role": "recruiter",
-    "postedJobs": [2]
+    "postedJobs": [
+      2
+    ]
+  },
+  {
+    "email": "rakeshmca222@gmail.com",
+    "password": "$2b$10$fvGdLC/y12dbxXrOnOWFh.lUS37UX27xp18XetGdBeBOXAPcNtzvS",
+    "username": "Rakesh",
+    "id": 4,
+    "role": "recruiter"
+  },
+  {
+    "email": "rakesh222@gmail.com",
+    "password": "$2b$10$SUo860mDfwzfJ1IRTS1FNuW5s6W8XsrR4vWnEgBB0NkHETJ4FUVhW",
+    "username": "rakesh",
+    "id": 5,
+    "role": "candidate"
+  },
+  {
+    "email": "mass@gmaiil.com",
+    "password": "$2b$10$o2sBqP7umyuEA4CgJbvE5.6Jzd7L4ePlfUQ7yzXNIqRomqglQJUzy",
+    "username": "mass",
+    "id": 6,
+    "role": "recruiter"
+  },
+  {
+    "email": "aparichutudu@gmail.com",
+    "password": "$2b$10$U/iW6UYccvNskVJnWbxVHuu6vNerE8nR5YsebpVaz/J69mrVUKrIu",
+    "username": "aparichutudu",
+    "id": 7,
+    "role": "candidate"
+  },
+  {
+    "email": "yoy@gmail.com",
+    "password": "$2b$10$qDWV9AQqka2wZ4Y2yhww3uc8dILLl1z0NsZafmzu83LmHO/KJkypC",
+    "username": "yoy",
+    "id": 8,
+    "role": "candidate"
+  },
+  {
+    "email": "salaar@gmail.com",
+    "password": "$2b$10$FC7TEkitz9VLQ.0NlilSou/n7orQ8XCJFt4t7C2.yw2J8/dozRjne",
+    "username": "salaar",
+    "id": 9,
+    "role": "candidate"
+  },
+  {
+    "email": "macha@gmail.com",
+    "password": "$2b$10$WnAOTe2YHvIeRN1BYnpBu.znbyTkEgZYm5Fuh3.uyi8eRtRD8ERi.",
+    "username": "macha",
+    "id": 10,
+    "role": "candidate"
+  },
+  {
+    "email": "bahubali@gmail.com",
+    "password": "$2b$10$Ct8aK2BQVTtdudDlqFoCBOhgDcXpADxL0k4im6pkmhZdpDt/fVBmu",
+    "username": "bahubali",
+    "id": 11,
+    "role": "candidate"
+  },
+  {
+    "email": "recruiter@gmail.com",
+    "username": "recruiter",
+    "password": "$2b$10$6Ss4XuDDAxpsnHd.1VseWu5ouwCwWnVNwHjBPAq4ygiCaBErhXdja",
+    "role": "recruiter",
+    "id": 12
+  },
+  {
+    "email": "candidate@gmail.com",
+    "password": "$2b$10$vVS15n8EpTB44ao/nWrNWOLSw0MzqiEeCnKXciKT/cmfmpHZB87L2",
+    "username": "candidate",
+    "role": "candidate",
+    "id": 13
   }
 ]

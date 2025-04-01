@@ -1,4 +1,4 @@
-import { getJobs } from "./Routes";
+import { getJobs, getUsers, registerUser } from "./Routes";
 
 const fetchData = async () => {
   try {
@@ -9,4 +9,17 @@ const fetchData = async () => {
     console.error("Error loading job data:", error);
   }
 };
-export { fetchData };
+
+const fetchUser = async (options) => {
+  let res = await fetch(getUsers, options);
+  let data = await res.json();
+  return data;
+};
+
+const fetchRegisterUser = async (options) => {
+  let res = await fetch(registerUser, options);
+  let data = await res.json();
+  return data;
+};
+
+export { fetchData, fetchUser, fetchRegisterUser };

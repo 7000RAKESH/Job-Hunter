@@ -11,6 +11,8 @@ import Savedjob from "./Pages/Savedjob";
 import { ThemeProvider } from "./Components/ui/Themeprovider";
 import Protectedroutes from "./Components/LandingPage/Protectedroutes";
 import PagenotFound from "./Pages/PagenotFound";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 const routers = createBrowserRouter([
   {
@@ -22,19 +24,11 @@ const routers = createBrowserRouter([
       },
       {
         path: "/onboarding",
-        element: (
-          <Protectedroutes>
-            <Onboarding />
-          </Protectedroutes>
-        ),
+        element: <Onboarding />,
       },
       {
-        path: "/jobs",
-        element: (
-          <Protectedroutes>
-            <Job />
-          </Protectedroutes>
-        ),
+        path: "/myjob",
+        element: <Myjobs />,
       },
       {
         path: "/postjob",
@@ -54,11 +48,7 @@ const routers = createBrowserRouter([
       },
       {
         path: "/jobs/:id",
-        element: (
-          <Protectedroutes>
-            <Myjobs />
-          </Protectedroutes>
-        ),
+        element: <Job />,
       },
       {
         path: "/savedjobs",
@@ -70,11 +60,15 @@ const routers = createBrowserRouter([
       },
       {
         path: "/*",
-        element: (
-          <Protectedroutes>
-            <PagenotFound />
-          </Protectedroutes>
-        ),
+        element: <PagenotFound />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },

@@ -72,12 +72,10 @@ app.post("/api/apply", (req, res) => {
   applications.push(newApplication);
   writeDataFile(applicationsFilePath, applications);
 
-  res
-    .status(201)
-    .json({
-      message: "Application submitted successfully",
-      application: newApplication,
-    });
+  res.status(201).json({
+    message: "Application submitted successfully",
+    application: newApplication,
+  });
 });
 
 // 4. **Save a Job**
@@ -171,16 +169,13 @@ app.patch("/api/applications/:id/status", (req, res) => {
   ) {
     return res.status(400).json({ message: "Valid status is required" });
   }
-
   const applications = readDataFile(applicationsFilePath);
   const applicationIndex = applications.findIndex(
     (app) => app.id === applicationId
   );
-
   if (applicationIndex === -1) {
     return res.status(404).json({ message: "Application not found" });
   }
-
   applications[applicationIndex].status = status;
   writeDataFile(applicationsFilePath, applications);
 
@@ -192,7 +187,6 @@ app.get("/api/jobs/:id/applications", (req, res) => {
   const jobId = parseInt(req.params.id, 10);
   const applications = readDataFile(applicationsFilePath);
   const jobApplications = applications.filter((app) => app.job_id === jobId);
-
   res.json(jobApplications);
 });
 

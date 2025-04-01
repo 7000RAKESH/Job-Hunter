@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import UseFetch from "@/Hooks/useFetch";
 
+const user = JSON.parse(localStorage.getItem("user"));
 const Jobcard = ({
   job,
   isMyJob = false,
@@ -27,7 +28,6 @@ const Jobcard = ({
     loading: loadingSavedJob,
   } = UseFetch();
 
-  const { user } = useUser();
   const handleSavedJob = async () => {
     await fnSavedJob({
       user_id: user.id,
@@ -46,13 +46,13 @@ const Jobcard = ({
       <CardHeader>
         <CardTitle className={"flex justify-between font-bold"}>
           {job.role}
-          {job && (
+          {/* {job && (
             <Trash2Icon
               fill="red"
               size={20}
               className="text-red-300 cursor-pointer"
             />
-          )}
+          )} */}
         </CardTitle>
       </CardHeader>
       <CardContent className={"flex flex-col gap-4 flex-1"}>
@@ -80,9 +80,9 @@ const Jobcard = ({
             variant="light"
           >
             {saved ? (
-              <HeartIcon size={20} stroke="red" fill="red" className="ml-4" />
+              <HeartIcon size={20} stroke="red" fill="red" />
             ) : (
-              <HeartIcon size={20} className="ml-4" />
+              <HeartIcon size={20} />
             )}
           </Button>
         )}

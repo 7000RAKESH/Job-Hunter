@@ -1,6 +1,66 @@
 [
   {
-    "candidate_id": 1,
-    "saved_jobs": [1, 2]
+    "candidateId": "1",
+    "appliedJobs": [
+      {
+        "jobId": "1",
+        "status": "selected"
+      },
+      {
+        "jobId": "2",
+        "status": "selected"
+      }
+    ],
+    "skills": "jkberj",
+    "candidatename": "ganesh",
+    "experience": "4",
+    "education": "Graduate",
+    "resume": "uploads\\1743013031104.png"
+  },
+  {
+    "candidateId": "7",
+    "appliedJobs": [
+      {
+        "jobId": "14",
+        "status": "selected"
+      },
+      {
+        "jobId": "2",
+        "status": "Interviewing"
+      }
+    ],
+    "skills": "node js",
+    "candidatename": "shiva",
+    "experience": "1",
+    "education": "Graduate",
+    "resume": "uploads\\1743052038231.png"
+  },
+  {
+    "candidateId": "5",
+    "candidatename": "rakesh",
+    "appliedJobs": [
+      {
+        "jobId": "3",
+        "status": "selected"
+      }
+    ],
+    "skills": "node js",
+    "experience": "11",
+    "education": "Graduate",
+    "resume": "uploads\\1743397970255.png"
+  },
+  {
+    "candidateId": "10",
+    "candidatename": "macha",
+    "appliedJobs": [
+      {
+        "jobId": "7",
+        "status": "rejected"
+      }
+    ],
+    "skills": "node js",
+    "experience": "11",
+    "education": "Graduate",
+    "resume": "uploads\\1743405979882.png"
   }
 ]
