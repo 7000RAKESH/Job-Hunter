@@ -12,7 +12,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "../Components/ui/Drawer";
+} from "@/Components/ui/DrawerComponent";
 import { myJob } from "@/apis/Routes";
 
 const Job = () => {
