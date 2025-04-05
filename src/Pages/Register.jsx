@@ -1,5 +1,6 @@
 import { fetchRegisterUser } from "@/apis/apijobs";
 import { registerUser } from "@/apis/Routes";
+import { message } from "antd";
 import React, { useState } from "react";
 import { Button, Form, Container, Row, Col, Card } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
@@ -70,6 +71,14 @@ const Register = () => {
         setIsSubmitting(false);
       });
   };
+
+  if (isSubmitting) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
 
   return (
     <Container

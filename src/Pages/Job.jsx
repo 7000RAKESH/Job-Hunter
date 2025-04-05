@@ -29,15 +29,17 @@ const Job = () => {
     resume: null,
     status: "",
   });
-  const [currentJobId, setCurrentJobId] = useState(0);
+  const [currentJobId, setCurrentJobId] = useState("");
 
+  // console.log(id);
+  // console.log(job._id);
   const user = JSON.parse(localStorage.getItem("user"));
-
+  // console.log(currentJobId);
   // Toggle the save/unsave status
   const toggleSave = () => {
     const savedJobToSend = {
       candidateId: user.id,
-      jobId: job.id,
+      jobId: job._id,
     };
 
     fetch("http://localhost:3000/save-job", {
@@ -88,7 +90,7 @@ const Job = () => {
     formDataToSend.append("candidatename", user.username);
     formDataToSend.append("appliedJobId", currentJobId);
     formDataToSend.append("status", formData.status);
-
+    // console.log(formData);
     fetch("http://localhost:3000/job-application", {
       method: "POST",
       body: formDataToSend,
@@ -193,7 +195,7 @@ const Job = () => {
               </span>
 
               {job && (
-                <Button onClick={toggleSave} variant="light">
+                <Button onClick={() => toggleSave(job._id)} variant="light">
                   {isSaved ? (
                     <HeartIcon
                       size={20}
@@ -219,7 +221,7 @@ const Job = () => {
                     </Button>
                   )}
                 </DrawerTrigger>
-                <DrawerContent>
+                <DrawerContent className=" bg-white ">
                   <DrawerHeader>
                     <DrawerTitle>Apply for job</DrawerTitle>
                     <DrawerDescription>

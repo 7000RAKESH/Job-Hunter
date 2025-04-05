@@ -45,13 +45,13 @@ const AppliedJobs = () => {
         }
         const jobsResponse = await fetch(getJobs);
         const allJobs = await jobsResponse.json();
-        // console.log(allJobs);
+        console.log(allJobs);
         const userAppliedJobs = allJobs.filter((job) => {
           return userApplication.appliedJobs.some((appliedJob) => {
-            return appliedJob.jobId == job.id && job;
+            return appliedJob.jobId == job._id && job;
           });
         });
-        // console.log(userAppliedJobs);
+        console.log(userAppliedJobs);
 
         setAppliedJobs(userAppliedJobs);
       } catch (err) {

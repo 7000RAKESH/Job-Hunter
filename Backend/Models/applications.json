@@ -4,7 +4,7 @@
     "appliedJobs": [
       {
         "jobId": "1",
-        "status": "selected"
+        "status": "rejected"
       },
       {
         "jobId": "2",
@@ -26,7 +26,7 @@
       },
       {
         "jobId": "2",
-        "status": "Interviewing"
+        "status": "interviewing"
       }
     ],
     "skills": "node js",
@@ -55,7 +55,7 @@
     "appliedJobs": [
       {
         "jobId": "7",
-        "status": "rejected"
+        "status": "interviewing"
       }
     ],
     "skills": "node js",

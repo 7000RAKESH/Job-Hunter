@@ -8,9 +8,9 @@
     "requirements": "Experience with JavaScript, React, and Node.js.",
     "isOpen": "",
     "location": "San Francisco, CA",
-    "recruiterid": 4,
-    "salary": "100000",
-    "isopen": "on"
+    "recruiterid": "67ee9ff83dd180ba36d960d7",
+    "salary": "500000",
+    "isopen": true
   },
   {
     "id": 2,
@@ -19,11 +19,11 @@
     "description": "As a Product Manager, you will lead product development teams to deliver innovative solutions.",
     "name": "Atlassian",
     "requirements": "Experience with agile methodologies and product lifecycle management.",
-    "isOpen": "",
+
     "location": "New York, NY",
-    "recruiterid": 4,
-    "salary": "100000",
-    "isopen": "on"
+    "recruiterid": "67ee9ff83dd180ba36d960d7",
+    "salary": "500000",
+    "isopen": true
   },
   {
     "id": 3,
@@ -32,11 +32,10 @@
     "description": "The UI/UX Designer will create visually appealing and user-friendly interfaces for web applications.",
     "name": "IBM",
     "requirements": "Experience in UI design, wireframing, and proficiency in design tools like Figma or Sketch.",
-    "isOpen": "on",
     "location": "Remote",
-    "recruiterid": 4,
-    "salary": "100000",
-    "isopen": "on"
+    "recruiterid": "67ee9ff83dd180ba36d960d7",
+    "salary": "500000",
+    "isopen": true
   },
   {
     "id": 4,
@@ -47,9 +46,9 @@
     "requirements": "Experience with Python, R, and machine learning frameworks.",
     "isOpen": "on",
     "location": "Austin, TX",
-    "recruiterid": 4,
-    "salary": "100000",
-    "isopen": "on"
+    "recruiterid": "67ee9ff83dd180ba36d960d7",
+    "salary": "500000",
+    "isopen": true
   },
   {
     "id": 5,
@@ -58,10 +57,10 @@
     "description": "DevOps Engineers are responsible for automating and streamlining the development and deployment pipeline.",
     "name": "Meta",
     "requirements": "Experience with Docker, Kubernetes, and CI/CD tools.",
-    "isOpen": "on",
+    "isOpen": true,
     "location": "Chicago, IL",
-    "recruiterid": 4,
-    "salary": "100000"
+    "recruiterid": "67ee9ff83dd180ba36d960d7",
+    "salary": "500000"
   },
   {
     "id": 6,
@@ -70,10 +69,10 @@
     "description": "As a Software Engineer, you will design, develop, and maintain software applications.",
     "name": "Netflix",
     "requirements": "Experience with JavaScript, React, and Node.js.",
-    "isOpen": "on",
+    "isOpen": true,
     "location": "San Francisco, CA",
-    "recruiterid": 4,
-    "salary": "100000"
+    "recruiterid": "67ee9ff83dd180ba36d960d7",
+    "salary": "500000"
   },
   {
     "id": 7,
@@ -82,10 +81,10 @@
     "description": "As a Product Manager, you will lead product development teams to deliver innovative solutions.",
     "name": "Microsoft",
     "requirements": "Experience with agile methodologies and product lifecycle management.",
-    "isOpen": "on",
+    "isOpen": true,
     "location": "New York, NY",
-    "recruiterid": 4,
-    "salary": "100000"
+    "recruiterid": "67ee9ff83dd180ba36d960d7",
+    "salary": "500000"
   },
   {
     "id": 8,
@@ -96,8 +95,9 @@
     "requirements": "Experience in UI design, wireframing, and proficiency in design tools like Figma or Sketch.",
     "isOpen": "on",
     "location": "Remote",
-    "recruiterid": 4,
-    "salary": "100000"
+    "recruiterid": "67ee9ff83dd180ba36d960d7",
+    "salary": "500000",
+    "isopen": true
   },
   {
     "id": 9,
@@ -106,10 +106,10 @@
     "description": "As a Data Scientist, you will analyze large datasets to derive actionable insights and support decision-making.",
     "name": "Amazon",
     "requirements": "Experience with Python, R, and machine learning frameworks.",
-    "isOpen": "on",
+    "isOpen": true,
     "location": "Austin, TX",
-    "recruiterid": 4,
-    "salary": "100000"
+    "recruiterid": "67ee9ff83dd180ba36d960d7",
+    "salary": "500000"
   },
   {
     "id": 10,
@@ -118,10 +118,11 @@
     "description": "DevOps Engineers are responsible for automating and streamlining the development and deployment pipeline.",
     "name": "Google",
     "requirements": "Experience with Docker, Kubernetes, and CI/CD tools.",
-    "isOpen": "on",
+
     "location": "Chicago, IL",
-    "recruiterid": 4,
-    "salary": "100000"
+    "recruiterid": "67ee9ff83dd180ba36d960d7",
+    "salary": "500000",
+    "isopen": false
   },
   {
     "id": 11,
@@ -130,11 +131,11 @@
     "description": "Cognizant is seeking highly motivated and talented Software Developers to join our team. ",
     "role": "software developer",
     "requirements": "Web Development: Strong understanding of web technologies such as HTML, CSS, JavaScript, RESTful APIs, and web services.",
-    "isOpen": "on",
+
     "location": "Hyderabad",
-    "recruiterid": 4,
-    "salary": "100000",
-    "isopen": "on"
+    "recruiterid": "67ee9ff83dd180ba36d960d7",
+    "salary": "500000",
+    "isopen": true
   },
   {
     "id": 13,
@@ -143,10 +144,10 @@
     "description": "hh",
     "role": "Frontend Developer",
     "requirements": " h",
-    "isopen": "off",
+    "isopen": true,
     "location": "Hyderabad",
-    "recruiterid": 4,
-    "salary": "100000"
+    "recruiterid": "67ee9ff83dd180ba36d960d7",
+    "salary": "500000"
   },
   {
     "id": 14,
@@ -155,10 +156,10 @@
     "description": "hell",
     "role": "Frontend Developer",
     "requirements": "hello",
-    "isopen": "on",
+    "isopen": true,
     "location": "Hyderabad",
     "recruiterid": 6,
-    "salary": "100000"
+    "salary": "500000"
   },
   {
     "id": 15,
@@ -167,9 +168,9 @@
     "description": "yes",
     "role": "Frontend Developer",
     "requirements": "yes",
-    "isopen": "on",
+    "isopen": true,
     "location": "Hyderabad",
-    "recruiterid": 4,
-    "salary": "100000"
+    "recruiterid": "67ee9ff83dd180ba36d960d7",
+    "salary": "500000"
   }
 ]

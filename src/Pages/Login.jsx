@@ -9,6 +9,9 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  const [guest, setGuest] = useState({});
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -48,6 +51,26 @@ const Login = () => {
         setIsSubmitting(false);
       });
   };
+
+  const handleGuest = () => {
+    const guest = {
+      name: "GUEST",
+      email: "guest@gmail.com",
+    };
+    // setGuest(guest);
+    localStorage.setItem("user", JSON.stringify(guest));
+    navigate("/");
+  };
+
+  console.log(guest);
+
+  if (isSubmitting) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
 
   return (
     <Container
@@ -106,7 +129,7 @@ const Login = () => {
               </div>
               <div className="text-center mt-3">
                 <p>
-                  Guest !<Link to="/">Guest Login</Link>
+                  Guest !<Link onClick={handleGuest}>Guest Login</Link>
                 </p>
               </div>
             </Card.Body>

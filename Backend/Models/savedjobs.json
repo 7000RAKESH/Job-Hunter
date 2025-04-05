@@ -1,17 +1,15 @@
 [
   {
-    "candidateId": "1",
+    "candidateId": 1,
     "savedJobs": [
-      "10",
-      "1"
+      10,
+      1
     ]
   },
   {
     "candidateId": 5,
     "savedJobs": [
-      15,
-      6,
-      5
+      8
     ]
   },
   {
@@ -19,5 +17,9 @@
     "savedJobs": [
       1
     ]
+  },
+  {
+    "candidateId": "67ee9ff83dd180ba36d960d8",
+    "savedJobs": []
   }
 ]

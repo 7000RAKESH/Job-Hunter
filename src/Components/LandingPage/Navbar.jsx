@@ -129,13 +129,24 @@ const NavBar = () => {
   };
 
   const handleSignOut = () => {
+    setLoading(true);
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     localStorage.removeItem("role");
+
     setSignedIn(false);
     setUser({});
+    setLoading(false);
     navigate("/");
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
 
   return (
     <Navbar

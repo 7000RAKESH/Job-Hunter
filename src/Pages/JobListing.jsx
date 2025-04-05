@@ -4,22 +4,24 @@ import { BarLoader } from "react-spinners";
 import Jobcard from "@/Components/LandingPage/Jobcard";
 import { Input } from "@/Components/ui/input";
 import { fetchData } from "@/apis/apijobs";
+
 const JobListing = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [location, setLocation] = useState("");
   const [jobsData, setJobsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6; // Number of items per page
+
   useEffect(() => {
     const res = fetchData().then((data) => {
       setJobsData(data);
-      // console.log(data);
       setLoading(false);
     });
   }, []);
 
   const filteredJobs = jobsData.filter((job) => {
-    const isJobOpen = job.isOpen;
     const matchesQuery =
       job.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       job.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -30,10 +32,23 @@ const JobListing = () => {
     return matchesQuery && matchesLocation;
   });
 
+  // Get the current page's jobs
+  const indexOfLastJob = currentPage * itemsPerPage;
+  const indexOfFirstJob = indexOfLastJob - itemsPerPage;
+  const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
+
+  const totalPages = Math.ceil(filteredJobs.length / itemsPerPage);
+
   const handleClearFilter = (e) => {
     e.preventDefault();
     setSearchQuery("");
     setLocation("");
+  };
+
+  const handlePageChange = (pageNumber) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
   };
 
   if (loading) {
@@ -52,6 +67,7 @@ const JobListing = () => {
     );
   }
 
+  // console.log(currentJobs);
   return (
     <div
       className="pt-30"
@@ -62,7 +78,6 @@ const JobListing = () => {
         width: "100%",
         minHeight: "100vh",
         boxSizing: "border-box",
-
         textAlign: "center",
       }}
     >
@@ -93,11 +108,32 @@ const JobListing = () => {
         />
       </div>
       <div className="pt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredJobs.length > 0 ? (
-          filteredJobs.map((job) => <Jobcard key={job.id} job={job} />)
+        {currentJobs.length > 0 ? (
+          currentJobs.map((job) => <Jobcard key={job._id} job={job} />)
         ) : (
           <b>No jobs available</b>
         )}
+      </div>
+
+      {/* Pagination controls */}
+      <div className="pagination-container p-5">
+        <Button
+          variant="light"
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </Button>
+        <span className="mx-2">
+          Page {currentPage} of {totalPages}
+        </span>
+        <Button
+          variant="light"
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </Button>
       </div>
     </div>
   );

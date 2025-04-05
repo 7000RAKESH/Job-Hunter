@@ -6,43 +6,47 @@ import {
   CardTitle,
   CardFooter,
 } from "../ui/card";
-import { useUser } from "@clerk/clerk-react";
 import { HeartIcon, MapPinIcon, Trash2Icon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import UseFetch from "@/Hooks/useFetch";
+// import UseFetch from "@/Hooks/useFetch";
 
-const user = JSON.parse(localStorage.getItem("user"));
-const Jobcard = ({
-  job,
-  isMyJob = false,
-  savedInit = false,
-  onJobSaved = () => {},
-}) => {
-  const [saved, setSaved] = useState(savedInit);
+const Jobcard = ({ job }) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [isSaved, setIsSaved] = useState(false);
 
-  // console.log("job", job);
-  const {
-    fn: fnSavedJob,
-    data: savedJob,
-    loading: loadingSavedJob,
-  } = UseFetch();
+  const toggleSave = () => {
+    const savedJobToSend = {
+      candidateId: user.id,
+      jobId: job._id,
+    };
 
-  const handleSavedJob = async () => {
-    await fnSavedJob({
-      user_id: user.id,
-      job_id: job.id,
-    });
-    onJobSaved();
+    fetch("http://localhost:3000/save-job", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(savedJobToSend),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Only toggle the saved state after the request succeeds
+        setIsSaved(!isSaved);
+      })
+      .catch((error) => {
+        console.error("Error saving job:", error);
+      });
   };
 
+  const [saved, setSavde] = useState(false);
   useEffect(() => {
-    if (savedJob !== undefined) {
-      setSaved(savedJob?.length > 0);
+    if (job) {
+      setSavde(true);
     }
-  }, [saved]);
+  }, []);
+
   return (
-    <Card className={"w-auto m-3  "}>
+    <Card className={"w-auto m-3 bg-white text-black "}>
       <CardHeader>
         <CardTitle className={"flex justify-between font-bold"}>
           {job.role}
@@ -67,7 +71,7 @@ const Jobcard = ({
         {job.description}
       </CardContent>
       <CardFooter>
-        <Link to={`/jobs/${job.id}`} className="flex-1">
+        <Link to={`/jobs/${job._id}`} className="flex-1">
           <Button className="w-full " variant="secondary">
             More Details
           </Button>
@@ -75,15 +79,20 @@ const Jobcard = ({
 
         {job && (
           <Button
-            onClick={handleSavedJob}
-            disabled={loadingSavedJob}
+            onClick={toggleSave}
+            // disabled={loadingSavedJob}
             variant="light"
           >
-            {saved ? (
+            {/* {isSaved ? (
               <HeartIcon size={20} stroke="red" fill="red" />
             ) : (
               <HeartIcon size={20} />
-            )}
+            )} */}
+            <HeartIcon
+              className={`w-6 h-6 ${
+                isSaved ? "text-red-500" : "text-gray-400"
+              }`}
+            />
           </Button>
         )}
       </CardFooter>
