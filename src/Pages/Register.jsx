@@ -1,6 +1,5 @@
 import { fetchRegisterUser } from "@/apis/apijobs";
 import { registerUser } from "@/apis/Routes";
-import { message } from "antd";
 import React, { useState } from "react";
 import { Button, Form, Container, Row, Col, Card } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
