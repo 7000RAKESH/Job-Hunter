@@ -13,7 +13,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/Components/ui/DrawerComponent";
-import { myJob } from "@/apis/Routes";
+import { baseUrl, myJob } from "@/apis/Routes";
 
 const Job = () => {
   const { id } = useParams();
@@ -43,7 +43,7 @@ const Job = () => {
       jobId: job._id,
     };
 
-    fetch("http://localhost:3000/save-job", {
+    fetch(`${baseUrl}/save-job`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -112,7 +112,7 @@ const Job = () => {
     console.log(formData);
     console.log(formDataToSend);
 
-    fetch("http://localhost:3000/job-application", {
+    fetch(`${baseUrl}/job-application`, {
       method: "POST",
       body: formDataToSend,
     })

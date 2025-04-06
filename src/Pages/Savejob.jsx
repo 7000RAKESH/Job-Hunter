@@ -137,7 +137,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:3000";
+import { baseUrl } from "@/apis/Routes";
 
 const Savejob = () => {
   const [jobsData, setJobsData] = useState([]);
@@ -168,7 +168,7 @@ const Savejob = () => {
         jobId: jobId,
       };
 
-      const response = await fetch(`${API_URL}/save-job`, {
+      const response = await fetch(`${baseUrl}/save-job`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

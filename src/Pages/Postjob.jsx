@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { postJobs, getUsers, getJobs } from "@/apis/Routes";
 import { Button } from "react-bootstrap";
 import { fetchUser } from "@/apis/apijobs";
-
+import { baseUrl } from "@/apis/Routes";
 const PostJob = () => {
   const [recruiterData, setRecruiterData] = useState(null);
   const [jobData, setJobData] = useState({
@@ -20,7 +20,7 @@ const PostJob = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
-    fetch("http://localhost:3000/users")
+    fetch(`${baseUrl}/users`)
       .then((response) => response.json())
       .then((data) => {
         setRecruiterData(data);

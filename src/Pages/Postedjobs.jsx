@@ -144,7 +144,7 @@
 import { TrashIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Card, Row, Col, Button } from "react-bootstrap";
-
+import { baseUrl } from "@/apis/Routes";
 const PostedJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -154,7 +154,7 @@ const PostedJobs = () => {
     const id = e.target.value;
 
     try {
-      const res = await fetch(`http://localhost:3000/jobs/${id}`, {
+      const res = await fetch(`${baseUrl}/jobs/${id}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       });
@@ -179,7 +179,7 @@ const PostedJobs = () => {
 
   const updateStatus = async (id, isopen) => {
     try {
-      const res = await fetch(`http://localhost:3000/status/${id}`, {
+      const res = await fetch(`${baseUrl}/status/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ isopen }),
@@ -198,7 +198,7 @@ const PostedJobs = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await fetch("http://localhost:3000/joblist");
+        const res = await fetch(`${baseUrl}/joblist`);
         const data = await res.json();
         setJobs(data);
       } catch (error) {

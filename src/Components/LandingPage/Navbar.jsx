@@ -323,8 +323,8 @@ const NavBar = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const userData = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem("user"));
     if (userData) {
       setSignedIn(!!userData);
       setUser(userData);
@@ -377,7 +377,9 @@ const NavBar = () => {
 
             <Link to="/savedjobs" className="text-white ">
               <Heart className="w-5 h-5 inline-block mr-1" />
-              Saved
+              {(userData?.role || "candidate") === "candidate"
+                ? "Saved"
+                : "Posts"}
             </Link>
 
             {/* Uncomment if you want recruiter check */}

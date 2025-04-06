@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Briefcase, MapPin, Building2 } from "lucide-react";
 import { getJobs } from "@/apis/Routes";
 
-const API_URL = "http://localhost:3000";
+import { baseUrl } from "@/apis/Routes";
 
 const PdfImage = ({ pdfUrl }) => {
   if (!pdfUrl) return null; // Handle case where URL is missing
@@ -41,7 +41,7 @@ const ApplicationStatus = () => {
         return;
       }
 
-      const applicationsResponse = await fetch(`${API_URL}/job-application`);
+      const applicationsResponse = await fetch(`${baseUrl}/job-application`);
       const applications = await applicationsResponse.json();
 
       const jobsResponse = await fetch(getJobs);

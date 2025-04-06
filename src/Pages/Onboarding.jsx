@@ -8,7 +8,8 @@ import {
   CircleLoader,
   RingLoader,
 } from "react-spinners";
-import { setRole } from "@/apis/Routes";
+import { baseUrl, setRole } from "@/apis/Routes";
+
 const Onboarding = () => {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -18,7 +19,7 @@ const Onboarding = () => {
   const localStorageRole = localStorage.getItem("role");
 
   useEffect(() => {
-    fetch("http://localhost:3000/users")
+    fetch(`${baseUrl}/users`)
       .then((response) => response.json())
       .then((data) => {
         setUser(data);

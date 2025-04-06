@@ -16,15 +16,6 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://job-hunter-git-master-rakeshs-projects-838f71b0.vercel.app/",
 ];
-
-app.use(
-  cors({
-    origin: allowedOrigins,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    credentials: true,
-  })
-);
-
 env.config();
 
 app.use(express.json());
@@ -44,6 +35,7 @@ app.options("*", (req, res) => {
   res.sendStatus(200);
 });
 
+console.log(process.env.MONGODB_URI);
 mongoose
   .connect(process.env.MONGODB_URI)
   .then((sucess) => console.log("connected"))
@@ -589,10 +581,10 @@ app.patch("/:candidateId/:jobId", async (req, res) => {
   }
 });
 
-app.listen(Port, "0.0.0.0", () => {
-  console.log(`Server is running on http://0.0.0.0:${Port}`);
-});
-
-// app.listen(Port, () => {
-//   console.log(`Server is running on http://localhost:${Port}`);
+// app.listen(Port, "0.0.0.0", () => {
+//   console.log(`Server is running on http://0.0.0.0:${Port}`);
 // });
+
+app.listen(Port, () => {
+  console.log(`Server is running on http://localhost:${Port}`);
+});

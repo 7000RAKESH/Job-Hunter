@@ -1,4 +1,5 @@
 const baseUrl = "http://localhost:3000";
+// const baseUrl = "https://job-hunter-backend-a8qv.onrender.com";
 
 // console.log(baseUrl);
 const getJobs = `${baseUrl}/joblist`;
