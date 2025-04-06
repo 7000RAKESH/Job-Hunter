@@ -26,7 +26,7 @@ const Job = () => {
     skills: "",
     experience: "",
     education: "",
-    resume: null,
+    resume: "",
     status: "",
   });
   const [currentJobId, setCurrentJobId] = useState("");
@@ -35,6 +35,7 @@ const Job = () => {
   // console.log(job._id);
   const user = JSON.parse(localStorage.getItem("user"));
   // console.log(currentJobId);
+
   // Toggle the save/unsave status
   const toggleSave = () => {
     const savedJobToSend = {
@@ -59,22 +60,40 @@ const Job = () => {
       });
   };
 
+  // const handleChange = (e) => {
+  //   if (e.target.type === "file") {
+  //     setApplied({
+  //       ...formData,
+  //       resume: e.target.files[0],
+  //     });
+  //   } else if (e.target.type === "radio") {
+  //     setApplied({
+  //       ...formData,
+  //       [e.target.name]: e.target.value,
+  //     });
+  //   } else {
+  //     setApplied({
+  //       ...formData,
+  //       [e.target.name]: e.target.value,
+  //     });
+  //   }
+  // };
+
   const handleChange = (e) => {
-    if (e.target.type === "file") {
-      setApplied({
-        ...formData,
-        resume: e.target.files[0],
-      });
-    } else if (e.target.type === "radio") {
-      setApplied({
-        ...formData,
-        [e.target.name]: e.target.value,
-      });
+    const { type, name, value, files } = e.target;
+
+    if (type === "file") {
+      const selectedFile = files[0];
+      // console.log("Selected file:", selectedFile); // Debug log
+      setApplied((prev) => ({
+        ...prev,
+        resume: selectedFile,
+      }));
     } else {
-      setApplied({
-        ...formData,
-        [e.target.name]: e.target.value,
-      });
+      setApplied((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
     }
   };
 
@@ -90,12 +109,14 @@ const Job = () => {
     formDataToSend.append("candidatename", user.username);
     formDataToSend.append("appliedJobId", currentJobId);
     formDataToSend.append("status", formData.status);
-    // console.log(formData);
+    console.log(formData);
+    console.log(formDataToSend);
+
     fetch("http://localhost:3000/job-application", {
       method: "POST",
       body: formDataToSend,
     })
-      .then((response) => response.json())
+      .then((response) => response)
       .then((data) => {
         console.log("Application submitted:", data);
         setIsSubmitting(false);

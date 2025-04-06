@@ -1,5 +1,6 @@
-const baseUrl = "http://localhost:3000";
+const baseUrl = "https://job-hunter-backend-4.onrender.com";
 
+// console.log(baseUrl);
 const getJobs = `${baseUrl}/joblist`;
 
 const myJob = `${baseUrl}/jobs/`;
@@ -12,4 +13,4 @@ const setRole = `${baseUrl}/updateRole`;
 
 const postJobs = `${baseUrl}/postjob`;
 
-export { getJobs, myJob, getUsers, registerUser, setRole, postJobs };
+export { getJobs, myJob, getUsers, registerUser, setRole, postJobs, baseUrl };

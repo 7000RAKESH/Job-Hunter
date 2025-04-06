@@ -229,8 +229,9 @@ const PostedJobs = () => {
                 <Card.Img
                   variant="top"
                   src={job.image}
-                  className="w-10 h-10 p-2.5 object-contain"
+                  className="w-20 h-20 p-2.5 object-contain"
                 />
+
                 <Card.Body>
                   <Card.Title>{job.name}</Card.Title>
                   <strong>Description: </strong>

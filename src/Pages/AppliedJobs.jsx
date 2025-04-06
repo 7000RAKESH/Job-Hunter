@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Briefcase, Calendar, MapPin, Building2 } from "lucide-react";
 import { getJobs } from "@/apis/Routes";
 import DropdownToggle from "@/Components/ui/DropdownToggle";
-const API_URL = "http://localhost:3000";
+import { baseUrl } from "@/apis/Routes";
+// const API_URL = "http://localhost:3000";
 
 const AppliedJobs = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const AppliedJobs = () => {
         const user = JSON.parse(userString);
         // console.log(user);
         // Fetch user's applications
-        const applicationsResponse = await fetch(`${API_URL}/job-application`);
+        const applicationsResponse = await fetch(`${baseUrl}/job-application`);
         const applications = await applicationsResponse.json();
         // console.log(applications);
 
@@ -68,31 +69,25 @@ const AppliedJobs = () => {
   // console.log(appliedJobs);
   // console.log(userApplications);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gray-50 p-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700">
-            {error}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div
       className="min-h-screen bg-gray-50 p-8 pt-28"
       style={{ backgroundColor: "#3674B5" }}
     >
+      {loading && (
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        </div>
+      )}
+      {error && (
+        <div className="min-h-screen bg-gray-50 p-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700">
+              {error}
+            </div>
+          </div>
+        </div>
+      )}
       <div className="max-w-4xl mx-auto">
         <b className="text-3xl font-bold text-white mb-8 ">Applied Jobs</b>
         <br />
@@ -117,7 +112,7 @@ const AppliedJobs = () => {
           <div className="space-y-4">
             {appliedJobs.map((job) => (
               <div
-                key={job.id}
+                key={job._id}
                 className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow"
               >
                 <div className="flex items-start justify-between">

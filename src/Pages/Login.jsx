@@ -33,7 +33,7 @@ const Login = () => {
 
     fetchUser(options)
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data && data.status === 200) {
           const token = data.token;
           localStorage.setItem("token", token);
@@ -62,7 +62,7 @@ const Login = () => {
     navigate("/");
   };
 
-  console.log(guest);
+  // console.log(guest);
 
   if (isSubmitting) {
     return (

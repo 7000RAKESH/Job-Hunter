@@ -169,7 +169,7 @@ const ApplicationStatus = () => {
                       <div className="flex items-center text-gray-600 mt-2 mb-1">
                         <img
                           src={jobDetails.image}
-                          className="w-20 h-10 object-contain"
+                          className="w-24 h-18 object-contain p-2 "
                           alt="company-logo"
                         />
                       </div>
@@ -222,7 +222,7 @@ const ApplicationStatus = () => {
                         <strong>Resume:</strong>
                         {application.resume ? (
                           <>
-                            <PdfImage pdfUrl={application.resume} />
+                            {/* <PdfImage pdfUrl={application.resume} /> */}
                             <a
                               href={application.resume}
                               target="_self"
