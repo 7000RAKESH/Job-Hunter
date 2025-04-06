@@ -13,7 +13,8 @@ import Protectedroutes from "./Components/LandingPage/Protectedroutes";
 import PagenotFound from "./Pages/PagenotFound";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const routers = createBrowserRouter([
   {
     element: <Applayout />,
@@ -77,6 +78,7 @@ const routers = createBrowserRouter([
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <ToastContainer position="top-right" autoClose={2000} />
       <RouterProvider router={routers} />
     </ThemeProvider>
   );

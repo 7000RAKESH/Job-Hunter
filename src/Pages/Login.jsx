@@ -2,6 +2,7 @@ import { fetchUser } from "@/apis/apijobs";
 import React, { useState } from "react";
 import { Button, Form, Container, Row, Col, Card } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,6 +39,7 @@ const Login = () => {
           const token = data.token;
           localStorage.setItem("token", token);
           localStorage.setItem("user", JSON.stringify(data.user));
+          toast.success("Login successful!");
           navigate("/onboarding");
         } else {
           alert("Invalid credentials");
