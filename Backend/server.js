@@ -24,7 +24,7 @@ app.use("/uploads", express.static("uploads"));
 app.use(
   cors({
     origin: allowedOrigins, // Allow requests only from this origin
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow these HTTP methods
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"], // Allow these HTTP methods
     credentials: true, // Allow cookies and credentials to be sent
   })
 );
@@ -581,10 +581,10 @@ app.patch("/:candidateId/:jobId", async (req, res) => {
   }
 });
 
-// app.listen(Port, "0.0.0.0", () => {
-//   console.log(`Server is running on http://0.0.0.0:${Port}`);
-// });
-
-app.listen(Port, () => {
-  console.log(`Server is running on http://localhost:${Port}`);
+app.listen(Port, "0.0.0.0", () => {
+  console.log(`Server is running on http://0.0.0.0:${Port}`);
 });
+
+// app.listen(Port, () => {
+//   console.log(`Server is running on http://localhost:${Port}`);
+// });

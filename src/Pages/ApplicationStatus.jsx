@@ -73,7 +73,7 @@ const ApplicationStatus = () => {
 
   const handleStatus = async (candidateId, jobId, status) => {
     try {
-      const response = await fetch(`${API_URL}/${candidateId}/${jobId}`, {
+      const response = await fetch(`${baseUrl}/${candidateId}/${jobId}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
