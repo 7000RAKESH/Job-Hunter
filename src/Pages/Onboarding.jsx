@@ -36,7 +36,7 @@ const Onboarding = () => {
     }
 
     const single = user.find((u) => u.email == localStorageUser.email);
-    console.log(single.role);
+    // console.log(single.role);
 
     if (single.role) {
       if (single.role == "candidate") {
