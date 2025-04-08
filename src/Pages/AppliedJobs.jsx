@@ -4,7 +4,6 @@ import { Briefcase, Calendar, MapPin, Building2 } from "lucide-react";
 import { getJobs } from "@/apis/Routes";
 import DropdownToggle from "@/Components/ui/DropdownToggle";
 import { baseUrl } from "@/apis/Routes";
-// const API_URL = "http://localhost:3000";
 
 const AppliedJobs = () => {
   const navigate = useNavigate();
@@ -46,13 +45,13 @@ const AppliedJobs = () => {
         }
         const jobsResponse = await fetch(getJobs);
         const allJobs = await jobsResponse.json();
-        console.log(allJobs);
+        // console.log(allJobs);
         const userAppliedJobs = allJobs.filter((job) => {
           return userApplication.appliedJobs.some((appliedJob) => {
             return appliedJob.jobId == job._id && job;
           });
         });
-        console.log(userAppliedJobs);
+        // console.log(userAppliedJobs);
 
         setAppliedJobs(userAppliedJobs);
       } catch (err) {
@@ -74,11 +73,6 @@ const AppliedJobs = () => {
       className="min-h-screen bg-gray-50 p-8 pt-28"
       style={{ backgroundColor: "#3674B5" }}
     >
-      {loading && (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-        </div>
-      )}
       {error && (
         <div className="min-h-screen bg-gray-50 p-8">
           <div className="max-w-4xl mx-auto">
