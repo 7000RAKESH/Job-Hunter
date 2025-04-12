@@ -209,7 +209,7 @@ app.post("/", async (req, res) => {
 
 app.post("/register", async (req, res) => {
   try {
-    const { email, password, username } = req.body;
+    const { email, password, username, role } = req.body;
 
     // Check if user already exists
     const existingUser = await Users.findOne({ email });
@@ -223,6 +223,7 @@ app.post("/register", async (req, res) => {
       email,
       username,
       password: hashedPassword,
+      role,
     });
 
     // Save user to DB
@@ -579,6 +580,9 @@ app.patch("/:candidateId/:jobId", async (req, res) => {
     console.error("Error updating status:", error);
     res.status(500).json({ message: "Internal server error" });
   }
+});
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.listen(Port, "0.0.0.0", () => {

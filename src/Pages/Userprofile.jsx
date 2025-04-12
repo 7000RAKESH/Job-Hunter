@@ -13,15 +13,13 @@ const UserProfile = ({ user, onLogout }) => {
   if (!user) return null;
 
   return (
-    <div className="w-full xl:w-auto sm:w-auto bg-white text-black rounded-xl shadow-lg p-4">
+    <div className="w-full xl:w-full sm:w-full bg-white text-black rounded-xl shadow-lg p-4">
       <h5 className="text-lg sm:text-xl font-semibold mb-2">
         Welcome, {user.username?.toUpperCase()} 👋
       </h5>
-      <p className="text-sm sm:text-base text-gray-700 break-words">
-        Role: {user.role}
-      </p>
-      <p className="text-sm sm:text-base text-gray-700 break-words">
-        Email: {user.email}
+      <p className="text-sm sm:text-base text-gray-700 ">Role: {user.role}</p>
+      <p className="text-sm sm:text-base text-gray-700 ">
+        Email: <small>{user.email}</small>
       </p>
 
       <Button

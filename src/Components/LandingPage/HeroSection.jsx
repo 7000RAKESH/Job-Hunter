@@ -36,7 +36,7 @@ const HeroSection = () => {
     if (!user) {
       navigate("/login");
     } else if (user) {
-      if (data.role == "candidate") {
+      if (data?.role == "candidate") {
         navigate("/joblist");
       } else {
         navigate("/postjob");
