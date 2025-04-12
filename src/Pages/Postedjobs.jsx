@@ -9,7 +9,7 @@ const PostedJobs = () => {
 
   const handleDelete = async (e) => {
     const id = e.target.value;
-
+    setLoading(true);
     try {
       const res = await fetch(`${baseUrl}/jobs/${id}`, {
         method: "DELETE",
@@ -24,6 +24,8 @@ const PostedJobs = () => {
       }
     } catch (err) {
       console.error("Error deleting job:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -35,6 +37,7 @@ const PostedJobs = () => {
   };
 
   const updateStatus = async (id, isopen) => {
+    setLoading(true);
     try {
       const res = await fetch(`${baseUrl}/status/${id}`, {
         method: "PATCH",
@@ -49,11 +52,14 @@ const PostedJobs = () => {
       }
     } catch (error) {
       console.error("Error updating job status:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     const fetchJobs = async () => {
+      setLoading(true);
       try {
         const res = await fetch(`${baseUrl}/joblist`);
         const data = await res.json();
@@ -70,7 +76,11 @@ const PostedJobs = () => {
   const filteredJobs = jobs.filter((u) => u.recruiterid === user.id);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
   }
 
   return (
@@ -81,7 +91,7 @@ const PostedJobs = () => {
         <h1 className="text-center text-white mb-4">Posted Jobs</h1>
         <Row>
           {filteredJobs.map((job) => (
-            <Col key={job._id} xs={12} sm={6} md={6} lg={4} className="mb-4">
+            <Col key={job._id} xs={12} sm={12} md={6} lg={4} className="mb-4">
               <Card className="h-100">
                 <Card.Img
                   variant="top"

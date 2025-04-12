@@ -98,6 +98,7 @@ const Job = () => {
   };
 
   const handleSubmit = (e) => {
+    setLoading(true);
     e.preventDefault();
     setIsSubmitting(true);
     const formDataToSend = new FormData();
@@ -125,17 +126,18 @@ const Job = () => {
         console.error("Error submitting application:", error);
         setIsSubmitting(false);
       });
+    setLoading(false);
   };
 
   useEffect(() => {
     const fetchJobDetails = async () => {
+      setLoading(true);
       try {
         const response = await fetch(`${myJob}${id}`);
         setCurrentJobId(id);
 
         const data = await response.json();
         setJob(data);
-        setLoading(false);
 
         // Check if the job is already saved for the user
         const savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
@@ -145,6 +147,8 @@ const Job = () => {
         setIsSaved(isJobSaved);
       } catch (error) {
         console.error("Error fetching job details:", error);
+        setLoading(false);
+      } finally {
         setLoading(false);
       }
     };

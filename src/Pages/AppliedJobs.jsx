@@ -67,6 +67,13 @@ const AppliedJobs = () => {
 
   // console.log(appliedJobs);
   // console.log(userApplications);
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -142,7 +149,7 @@ const AppliedJobs = () => {
                   </div>
 
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                    {userApplications.appliedJobs.map((one) => {
+                    {userApplications.appliedJobs.reduce((one) => {
                       return one.jobId == job.id ? one.status : "Applied";
                     })}
                   </span>

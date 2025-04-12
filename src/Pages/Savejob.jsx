@@ -4,7 +4,6 @@ import { Briefcase } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-
 import { baseUrl } from "@/apis/Routes";
 
 const Savejob = () => {
@@ -16,6 +15,7 @@ const Savejob = () => {
 
   // Fetch saved jobs for the user
   const savedJobsForUser = async () => {
+    setLoading(true);
     try {
       const res = await fetch(`${baseUrl}/save-job`);
       const data = await res.json();
@@ -25,11 +25,14 @@ const Savejob = () => {
       setSavedJobs(userSavedJobs ? userSavedJobs.savedJobs : []);
     } catch (error) {
       console.error("Error fetching saved jobs:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   // Toggle the save/unsave status
   const toggleSave = async (jobId) => {
+    setLoading(true);
     try {
       const savedJobToSend = {
         candidateId: user.id,
@@ -54,6 +57,8 @@ const Savejob = () => {
       );
     } catch (error) {
       console.error("Error saving job:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -76,6 +81,13 @@ const Savejob = () => {
 
   // Get saved jobs from job data
   const appliedJobs = jobsData.filter((job) => savedJobs.includes(job._id));
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -90,11 +102,9 @@ const Savejob = () => {
         paddingTop: "5rem",
       }}
     >
+      <h1>Saved Jobs</h1>
       <div className="pt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {loading ? (
-          <b>Loading...</b>
-        ) : (
-          appliedJobs.length > 0 &&
+        {appliedJobs.length > 0 &&
           appliedJobs.map((job) => (
             <Jobcard
               key={job._id}
@@ -102,8 +112,7 @@ const Savejob = () => {
               isSaved={savedJobs.includes(job._id)} // Dynamically update saved status
               toggleSave={() => toggleSave(job._id)} // Toggle save function
             />
-          ))
-        )}
+          ))}
       </div>
 
       {appliedJobs.length === 0 && (
